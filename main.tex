@@ -1,0 +1,164 @@
+
+%%% TeX-master: t
+\documentclass[12pt]{report}
+
+% my setup file
+\usepackage{thesisSetup}
+
+%% date and time
+\usepackage{datetime}
+
+\newdateformat{monthyeardate}{%
+	\monthname[\THEMONTH], \THEYEAR}
+
+% citations
+\usepackage[sort, authoryear, round]{natbib} % author-year
+% \end{document}
+% 
+\bibliographystyle{econ} %abbrvnat
+
+\DeclareUnicodeCharacter{2060}{\nolinebreak}
+%
+
+\makeatletter
+\renewenvironment{titlepage}
+{%
+	\if@twocolumn
+	\@restonecoltrue\onecolumn
+	\else
+	\@restonecolfalse\newpage
+	\fi
+	\thispagestyle{empty}%
+}
+{%
+	\if@restonecol
+	\twocolumn
+	\else
+	\newpage
+	\fi
+}
+\makeatother
+
+%\newcommand{\logo}[1]{%
+%	\titlefont{%
+%	\end{tabular}\par\end{center}
+%\begin{center}\includegraphics[scale=0.5]{#1}\end{center}
+%\vskip0.5em}%
+%}
+
+%\logo{logo/HUJI_LogoEng_hor.jpg}
+%\title{
+%%	\begin{figure}
+%%			\includegraphics[]{logo/HUJI_LogoEng_hor.jpg}
+%%	\end{figure}
+%%	\includegraphics[]{logo/HUJI_LogoEng_hor.jpg}
+%%	\vspace{5em}
+%    {Effect of organic fertilization on long and short term dynamics of various SOM pools}\\ 
+%    {\large Institution name}\\
+%   % {\includegraphics{university_logo.jpg}}
+%}
+%
+%\author{Braude Elan }
+%\date{2021}
+
+\begin{document}
+%	\maketitle
+
+%% this for using in the rcparams
+%document text width: \printinunitsof{in}\prntlen{\textwidth}
+%lengths
+%\newlength{\figurewidth}
+%\setlength{\figurewidth}{\linewidth*0.5}
+	
+	\begin{titlepage}
+		
+		\begin{center} % Center everything on the page
+		
+		\includegraphics{logo/HUJI_LogoEng_hor.jpg}\\[0.1cm]
+		
+%		\vskip 5em
+		\vfill
+		\vfill
+		\vfill
+		\vfill
+
+		{ \huge  Effect of organic fertilization on long and short term dynamics of various SOM pools}\\[0.4cm] % Title of your document
+
+		\vskip 3em
+		Thesis is submitted to the Robert H. Smith Faculty of Agriculture, Food and Environment,  Hebrew University of Jerusalem, in partial fulfilment of the requirements for the degree of "Master of Science"\\
+		\vspace{1em}
+		by\\
+		\vspace{1em}
+		Elan Bruade
+		
+		\vfill
+		\vfill
+		\vfill
+		\vfill
+		\vfill
+		\vfill
+		
+		\end{center}
+		\begin{tabular}[L]{lr}
+			\small \monthyeardate \today\\ 
+
+		\end{tabular}
+		
+	\end{titlepage}
+
+
+	
+%	\chapter*{Abstract}
+%	    \input{chapters/abstract_28-9-20.tex}
+	\newpage
+	\vspace*{100pt}
+
+	\noindent \large This study was conducted under the supervision of:\\
+	Dr. Asher Bar-Tal\\
+	Institute of Soil, Water and Environmental Sciences.\\
+	Agricultural Research Organization (ARO), Volcani Center,\\
+	Rishon Le-Zion, Israel.\\
+	\newpage    
+	
+
+	\chapter*{Acknowledgements}
+	I'd like to thank the following for their help and support in this project:\\
+	Dr. Adi Oren for inspiring me to begin with the project and helping me set up the basic principles of this work, Dr. Ahser Bar-Tal for his clear and practical guidance and Dr. Nadia Buchanovsky for her technical and scientific help.
+	\\
+	\noindent Lastly, I offer my deepest gratitude to my partner Gali Castro, who supported and encouraged me throughout this process.
+	
+	\newpage
+	\printglossary[title=List of abbreviations, nonumberlist]
+	
+	\begin{abstract}
+		\addcontentsline{toc}{chapter}{Abstract}
+		
+		\input{chapters/abstract_28-9-20.tex}
+	\end{abstract}
+	
+	 
+	\tableofcontents
+
+	\chapter{Introduction}
+	    \input{chapters/introduction}
+
+	\chapter{Materials and Methods} \label{materials_and_methods}
+	    \input{chapters/materials_and_methods}
+
+	\chapter{Results}
+	    \input{chapters/results}
+
+	\chapter{Discussion}
+  		\input{chapters/discussion}
+  		
+	\chapter{Conclusions}
+		\input{chapters/conclusions}
+		
+%	\section*{}
+
+
+	\bibliography{thesis_copy}	
+	\vskip50em
+	\chapter*{}
+	\addcontentsline{toc}{chapter}{\protect\textbf{Abstract in Hebrew}}
+\end{document}

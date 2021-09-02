@@ -1,0 +1,3 @@
+[submodule "econ-bst"]
+	path = econ-bst
+	url = git@github.com:ShiroTakeda/econ-bst.git

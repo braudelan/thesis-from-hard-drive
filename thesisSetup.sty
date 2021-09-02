@@ -1,0 +1,159 @@
+\setcounter{tocdepth}{3}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+%% hebrew support
+%\usepackage[english, hebrew]{babel}
+
+% graphics setup
+\usepackage{graphicx}
+\graphicspath{./thesis_figures/}
+
+\usepackage[colorlinks=true, allcolors=black]{hyperref}
+\usepackage{xcolor}
+
+\usepackage{booktabs}
+\usepackage[total={170mm,257mm}]{geometry}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{float}
+\usepackage{layouts}
+\usepackage{changepage}
+\usepackage[flushleft]{threeparttable}
+
+% hyper links to sections inside the work
+\usepackage{hyperref}
+\hypersetup{backref,
+	pdfpagemode=FullScreen,
+	colorlinks=true}
+
+%% citations
+%\usepackage[sort, authoryear, round]{natbib} % author-year 
+%\bibliographystyle{plainnat}
+
+
+% Abbreviations
+\usepackage[nopostdot,toc,acronym,nomain]{glossaries} %nonumberlist
+%\loadglsentries{abbreviations}
+\makeglossaries
+\setacronymstyle{long-short}
+
+\newacronym{som}{SOM}{Soil Organic Matter}
+\newacronym{om}{OM}{Organic Matter}
+\newacronym{cue}{CUE}{Carbon Use Efficiency}
+\newacronym{cuee}{CUE\$ \_E \$}{Ecosystem CUE}
+\newacronym{dom}{DOM}{Dissolved Organic Matter}
+\newacronym{doc}{DOC}{Dissolved Organic Carbon}
+\newacronym{weom}{WEOM}{Water Extractable Organic Matter}
+\newacronym{hweom}{HWEOM}{Hot Water Extractable Organic Matter}
+\newacronym{amf}{AMF}{Arbuscular mycorrhizal fungi}
+\newacronym{soc}{SOC}{Soil Organic Carbon}
+\newacronym{wsa}{WSA}{Water Stable Aggregates}
+\newacronym{npp}{NPP}{Net Primary Production}
+\newacronym{carbon}{C}{Carbon}
+
+\newacronym{gop}{GOP}{Gilat Organic Plots}
+\newacronym{ltt}{LTT}{Long Term Treatment}
+\newacronym{org}{Org}{long-term Organic fertilization treatment}
+\newacronym{min}{Min}{long-term Mineral fertilization treatment}
+\newacronym{unc}{Unm}{long-term Unmanaged soil }
+
+\newacronym{stt}{STT}{Short Term Treatment}
+\newacronym{str}{WSt}{Wheat Straw}
+\newacronym{dwc}{DWC}{Domestic Waste Compost}
+
+\newacronym{whc}{WHC}{Water Holding Capacity}
+
+\newacronym{mbc}{MBC}{Microbial Biomass Carbon}
+\newacronym{mbn}{MBN}{Microbial Biomass Nitrogen}
+\newacronym{weoc}{WEOC}{cold Water Extractable Organic Carbon}
+\newacronym{hwec}{HWEC}{Hot Water Extractable organic Carbon}
+\newacronym{hwes}{HWES}{Hot Water Extractable Sugars}
+\newacronym{hwes-c}{HWES-C}{HOT Water Extractable Carbohydrate-Carbon}
+\newacronym{erg}{Erg}{Ergosterol}
+\newacronym{resp}{Resp}{$ CO_2 $ Respiration}
+
+\newacronym{mre}{MRE}{Model Root Exudate solution}
+
+\newacronym{toc}{TOC}{Total Organic Carbon}
+\newacronym{tin}{TIN}{Total Inorganic Nitrogen}
+\newacronym{ags}{AgS}{Aggregate Stability}
+
+\newacronym{ec}{EC}{Electrical Conductivity}
+
+\newacronym{gc}{GC}{Gas Chromatograph}
+\newacronym{dw}{DW}{Distilled Water}
+
+\newacronym{map}{MAP}{Mean Annual Percipitation}
+
+%\usepackage[nopostdot,toc,acronym,nomain]{glossaries} %nonumberlist
+%\loadglsentries{abbreviations}
+%\makeglossaries
+%\setacronymstyle{long-short}
+
+%%% date and time
+%\usepackage{datetime}
+%
+%\newdateformat{monthyeardate}{%
+%	\monthname[\THEMONTH], \THEYEAR}
+
+
+\renewcommand{\chaptername}{}
+\titleformat{\chapter}{\normalfont\bfseries}{\Large\thechapter.}{0.8em}{\Large}
+
+%% Abbreviations
+
+
+
+% pdf comments
+\usepackage{pdfcomment}
+
+\usepackage[inline]{enumitem} % allows intertext inside enumerated list(without indent)
+
+
+% table configurations
+\usepackage{caption}
+\captionsetup[table]{
+	skip=10pt,
+%	singlelinecheck=off,
+%	justification=cent
+}
+
+% chapter headings without the word 'chapter'
+
+
+% my macros
+
+% hack for short minus sign
+%	\def\-{\raisebox{.5pt}{-}}
+
+% intertext for enumarated list
+\newcounter{saveenumerate}
+	\makeatletter
+		\newcommand{\numintertext}[1]{%
+		\setcounter{saveenumerate}{\value{enum\romannumeral\the\@enumdepth}}
+		\end{enumerate}
+		#1
+		\begin{enumerate}
+		\setcounter{enum\romannumeral\the\@enumdepth}{\value{saveenumerate}}%
+	}
+	\makeatother
+
+% A text highlighting comment
+\newcommand{\highlightcomment}[2]{\pdfmarkupcomment[markup=Highlight, color=yellow]{#1}{#2}}
+
+% quick text coloring
+\newcommand{\myRed}[1]{\textcolor{red}{#1}} % text color red
+\newcommand{\myGreen}[1]{\textcolor{olive}{#1}} % text color green
+\newcommand{\hiddenTxt}[1]{\iffalse{#1}\fi} % hidden text
+
+
+% scaling argument
+\newcommand{\ScalePreTreated}{1.2}
+
+% units
+\newlength{\SpaceAfterUnit}
+\setlength{\SpaceAfterUnit}{0.3pt}
+\newcommand{\respunit}{$ mg\ CO_2$\text{-}$C\ kg^{\text{-}1}\ day^{\text{\text{-}}1}$ \hspace*{\SpaceAfterUnit}}
+\newcommand{\cumrespunit}{$ mg\ CO_2$\text{-}$C kg^{\text{-}1}$ \hspace*{\SpaceAfterUnit}}
+\newcommand{\genericunit}{$ mg\ kg^{\text{-}1}$ \hspace*{\SpaceAfterUnit}}
